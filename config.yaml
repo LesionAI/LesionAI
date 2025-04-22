@@ -21,6 +21,12 @@ credentials:
       password: $2b$12$G2DeYPgzfVt8b/4ETB/xaOjiswqtlrjEoEYlxgsc27b7OyfHKdjwC
 
 
+    ines:
+      email: vdq@example.com
+      name: Ines Gourgouillat
+      password: Ines050601
+
+
 cookie:
   name: lesionai_cookie
   key: somekey123
