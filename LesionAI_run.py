@@ -30,4 +30,4 @@ if authentication_status:
 elif authentication_status is False:
     st.error("Incorrect username or password")
 elif authentication_status is None:
-    st.warning("Please enter your credentials")
+    st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
