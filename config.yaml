@@ -24,7 +24,7 @@ credentials:
     ines:
       email: vdq@example.com
       name: Ines Gourgouillat
-      password: Ines050601
+      password: $2b$12$KIi5d/yvfTx2RlOILOh6beAN/GDBR9NgYcmka1Olsl7uWgIjJq3za
 
 
 cookie:
