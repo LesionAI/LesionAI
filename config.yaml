@@ -1,0 +1,28 @@
+credentials:
+  usernames:
+    drsmith:
+      email: drsmith@example.com
+      name: Dr. Smith
+      password: $2b$12$wNUNzU7fWMOqhYZJGMTIU0XdN7ev0vum83OhzbsN13BHLsVcGYQdO
+
+    drdelbos:
+      email: vdq@example.com
+      name: Victor DELBOS
+      password: $2b$12$9RolNhH9ET3qw0ZEYeheieZuK1flhV7NTsAIgDWnRu05nBsVtiMyC
+
+    paula:
+      email: vdq@example.com
+      name: Paula MARTIN
+      password: $2b$12$wNGkFArOzhOt1Kr0TMrNO.Y7kIykIHCu6M.ueGrsWHMVbZKmPg0z.
+      
+    test:
+      email: vdq@example.com
+      name: test
+      password: $2b$12$G2DeYPgzfVt8b/4ETB/xaOjiswqtlrjEoEYlxgsc27b7OyfHKdjwC
+
+
+cookie:
+  name: lesionai_cookie
+  key: somekey123
+  expiry_days: 1
+
