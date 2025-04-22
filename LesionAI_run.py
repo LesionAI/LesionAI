@@ -22,8 +22,6 @@ name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status is None:
     # ✅ Afficher le logo uniquement à l'écran de login
-    col1, col2, col3 = st.columns([2, 1, 1])
-    with col2:
         st.image("assets/logo.png", width=400)
 
     st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
