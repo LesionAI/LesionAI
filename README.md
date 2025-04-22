@@ -9,7 +9,7 @@
 
 ### 1. Cloner le projet (si applicable)
 ```bash
-git clone <repo-url>
+git clone https://github.com/LesionAI/LesionAI/
 cd LesionAI
 ```
 
@@ -71,6 +71,4 @@ Cela te redirigera vers l'interface de login, puis chargera automatiquement l'ap
 
 ## 🧼 Auteurs
 
-- Projet développé dans le cadre d’un mémoire de fin d’étude en chirurgie dentaire
-- Powered by 🧠 Roboflow + Streamlit
-
+- Victor DELBOS
