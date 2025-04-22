@@ -6,10 +6,11 @@ import yaml
 from yaml.loader import SafeLoader
 from app import run_app
 
-# Auth setup
+# Load config
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
+# Authenticator instance (before login)
 authenticator = stauth.Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -18,19 +19,19 @@ authenticator = stauth.Authenticate(
     preauthorized=False
 )
 
-# Login box
-name, authentication_status, username = authenticator.login("Login", "main")
+# 👇 Logo + Login FORM (regroupés dans une colonne)
+if "authentication_status" not in st.session_state or st.session_state["authentication_status"] is None:
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image("assets/logo.png", width=400)
+        name, authentication_status, username = authenticator.login("Login", "main")
+        st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
+else:
+    name, authentication_status, username = authenticator.login("Login", "main")
 
-# ✅ Logo et message affichés uniquement AVANT connexion
-if authentication_status is None:
-    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-    st.image("assets/logo.png", width=450)
-    st.markdown("</div>", unsafe_allow_html=True)
-    st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
-
-elif authentication_status is False:
+# 🔒 Login flow
+if authentication_status is False:
     st.error("Incorrect username or password")
-
 elif authentication_status:
     authenticator.logout("Logout", "main")
     st.success(f"Welcome {name} 👋")
