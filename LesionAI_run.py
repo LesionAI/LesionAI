@@ -1,4 +1,3 @@
-
 import streamlit as st
 st.set_page_config(page_title="LesionAI", layout="wide")
 
@@ -11,8 +10,6 @@ from app import run_app  # ⬅️ importer l'application principale
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
-st.image("assets/logo.png", width=400)
-
 authenticator = stauth.Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -23,11 +20,15 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login("Login", "main")
 
-if authentication_status:
-    authenticator.logout("Logout", "main")
-    st.success(f"Welcome {name} 👋")
-    run_app(username)  # ⬅️ lancer l'application
+# ✅ Afficher le logo seulement si l'utilisateur N'EST PAS connecté
+if authentication_status is None:
+    st.image("assets/logo.png", width=450)  # Garde le logo en haut, comme dans ta capture
+    st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
+
 elif authentication_status is False:
     st.error("Incorrect username or password")
-elif authentication_status is None:
-    st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
+
+elif authentication_status:
+    authenticator.logout("Logout", "main")
+    st.success(f"Welcome {name} 👋")
+    run_app(username)
