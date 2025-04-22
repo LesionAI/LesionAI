@@ -11,7 +11,7 @@ from app import run_app  # ⬅️ importer l'application principale
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
-st.image("assets/logo.png", width=300)
+st.image("assets/logo.png", width=500)
 
 authenticator = stauth.Authenticate(
     config["credentials"],
