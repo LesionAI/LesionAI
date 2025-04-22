@@ -1,4 +1,3 @@
-
 import streamlit as st
 st.set_page_config(page_title="LesionAI", layout="wide")
 
@@ -11,8 +10,6 @@ from app import run_app  # ⬅️ importer l'application principale
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
-st.image("assets/logo.png", width=400)
-
 authenticator = stauth.Authenticate(
     config["credentials"],
     config["cookie"]["name"],
@@ -23,11 +20,18 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login("Login", "main")
 
-if authentication_status:
+if authentication_status is None:
+    # ✅ Afficher le logo uniquement à l'écran de login
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image("assets/logo.png", width=400)
+
+    st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
+
+elif authentication_status is False:
+    st.error("Incorrect username or password")
+
+elif authentication_status:
     authenticator.logout("Logout", "main")
     st.success(f"Welcome {name} 👋")
     run_app(username)  # ⬅️ lancer l'application
-elif authentication_status is False:
-    st.error("Incorrect username or password")
-elif authentication_status is None:
-    st.warning("Please enter your credentials")
