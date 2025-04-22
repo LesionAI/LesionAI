@@ -18,16 +18,14 @@ authenticator = stauth.Authenticate(
     preauthorized=False
 )
 
-# ✅ Logo affiché avant le formulaire de login
-name, authentication_status, username = None, None, None
-if "authentication_status" not in st.session_state:
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.image("assets/logo.png", width=350)
-
+# Login box
 name, authentication_status, username = authenticator.login("Login", "main")
 
+# ✅ Logo et message affichés uniquement AVANT connexion
 if authentication_status is None:
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    st.image("assets/logo.png", width=450)
+    st.markdown("</div>", unsafe_allow_html=True)
     st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
 
 elif authentication_status is False:
