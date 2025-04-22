@@ -23,7 +23,7 @@ authenticator = stauth.Authenticate(
 if "authentication_status" not in st.session_state or st.session_state["authentication_status"] is None:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.image("assets/logo.png", width=400)
+        st.image("assets/logo.png", width=300)
         name, authentication_status, username = authenticator.login("Login", "main")
         st.info("👋 Happy to see you on **LesionAI**, the AI-powered assistant for intraoral lesion detection.")
 else:
