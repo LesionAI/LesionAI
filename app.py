@@ -21,7 +21,7 @@ def run_app(username):
     base_dir = os.path.join("dossiers_patients", username)
     os.makedirs(base_dir, exist_ok=True)
 
-    model_url = "https://serverless.roboflow.com/custom-workflow-single-label-classification-9ylyn/2"
+    model_url = "https://serverless.roboflow.com/custom-workflow-single-label-classification-9ylyn/3"
     api_key = os.getenv('ROBOFLOW_API_KEY')
 
     def predict_with_roboflow(image_path):
