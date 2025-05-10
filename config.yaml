@@ -1,12 +1,13 @@
 credentials:
   usernames:
-    drsmith:
-      email: drsmith@example.com
-      name: Dr. Smith
-      password: $2b$12$wNUNzU7fWMOqhYZJGMTIU0XdN7ev0vum83OhzbsN13BHLsVcGYQdO
+  
+    drgil:
+      email: 
+      name: Dr. Victor Gil
+      password: $2b$12$Leu5cxYKzsAfzV5OZWQ9C.o8BbyDrX3dvtFhQTPEkOkdrNx1nbQaG
 
     drdelbos:
-      email: vdq@example.com
+      email: victor.delbos@uic.es
       name: Victor DELBOS
       password: $2b$12$9RolNhH9ET3qw0ZEYeheieZuK1flhV7NTsAIgDWnRu05nBsVtiMyC
 
