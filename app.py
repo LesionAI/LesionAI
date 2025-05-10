@@ -120,7 +120,7 @@ def run_app(username):
                         st.image(followup_path, caption="Follow-up Image", width=600)
 
                     if st.button(f"📄 Generate PDF for {info['Nom']}", key="pdf_" + folder):
-                        pdf_path = os.path.join(photo_dir, f"{info['Nom'].replace(' ', '_')}_report.pdf")
+                        pdf_path = os.path.join(photo_dir, f"{str(info['Nom']).replace(' ', '_')}_report.pdf")
                         generate_patient_pdf(info, photo_dir, pdf_path)
                         with open(pdf_path, "rb") as f:
                             b64 = base64.b64encode(f.read()).decode()
