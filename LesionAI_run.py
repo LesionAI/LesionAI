@@ -19,7 +19,7 @@ authenticator = stauth.Authenticate(
     preauthorized=False
 )
 
-# 👇 Logo + Login FORM (regroupés dans une colonne)
+
 if "authentication_status" not in st.session_state or st.session_state["authentication_status"] is None:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -29,7 +29,7 @@ if "authentication_status" not in st.session_state or st.session_state["authenti
 else:
     name, authentication_status, username = authenticator.login("Login", "main")
 
-# 🔒 Login flow
+
 if authentication_status is False:
     st.error("Incorrect username or password")
 elif authentication_status:
