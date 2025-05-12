@@ -7,7 +7,7 @@
 
 ## 🚀 Lancer l'application
 
-### 1. Cloner le projet (si applicable)
+### 1. Cloner le projet
 ```bash
 git clone https://github.com/LesionAI/LesionAI/
 cd LesionAI
